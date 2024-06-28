@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMS_Task_4.Pages.StatisticsPage"
+             BackgroundColor="DarkSlateGray">
+
+    <ScrollView Margin="15,15,15,15"> 
+        <Grid RowDefinitions="1*,1*,1*,1*,1*,1*,1*,1*,1*" HorizontalOptions="Center" RowSpacing="10">
+            <!-- GENERAL STATS SECTION -->
+            <Frame Grid.Row="0">
+                <Label FontSize="Large" FontAttributes="Bold" Text="General Statistics" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame Grid.Row="1">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Livestock statistics title -->
+                    <Label FontSize="Medium" FontAttributes="Bold" Text="Livestock Statistics" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!-- Government Tax label and result label -->
+                    <Label Text="30 Day Government Tax:" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="DayGovTax" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <!-- Daily Profit label and result label -->
+                    <Label Text="Farm Daily Profit:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="DailyProfit" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Average Weight label and result label -->
+                    <Label Text="Average Livestock Weight:" HorizontalTextAlignment="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="AvgWeight" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="2">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Livestock profit title -->
+                    <Label FontSize="Medium" FontAttributes="Bold" Text="Current Profit Data" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!-- Average Daily Profit Per Cow label and result label -->
+                    <Label Text="Average Daily Cow Profit:" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="CowAvgProfit" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <!-- Average Daily Profit Per Sheep label and result label -->
+                    <Label Text="Average Daily Sheep Profit:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="SheepAvgProfit" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Total Daily Cow Profit label and result label -->
+                    <Label Text="Total Daily Cow Profit:" HorizontalTextAlignment="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="CowTotalProfit" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+                    <!-- Total Daily Sheep Profit label and result label -->
+                    <Label Text="Total Daily Sheep Profit:" HorizontalTextAlignment="Start" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="SheepTotalProfit" Text="Loading..." HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="2"/>
+                </Grid>
+            </Frame>
+            <!-- Spacer -->
+            <Label Grid.Row="3"/>
+            <!-- TYPE/COLOUR SEARCH SECTION -->
+            <Frame Grid.Row="4">
+                <Label FontSize="Large" FontAttributes="Bold" Text="Livestock Type/Colour Stats" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame Grid.Row="5">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*,1*,1*,1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Livestock Type label and entry -->
+                    <Label Text="Enter Livestock Type:" HorizontalTextAlignment="Start" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LSType" TextColor="Black" Placeholder="Type..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2"/>
+                    <!-- Livestock colour label and entry -->
+                    <Label Text="Enter Livestock Colour:" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LSColour" TextColor="Black" Placeholder="Colour..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <!-- Confirm button -->
+                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Text="Click To Confirm" Clicked="SearchConfirm_click"/>
+                    <!-- Livestock Number label and result label -->
+                    <Label Text="Number of Livestock:" HorizontalTextAlignment="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSNum" Text="..." HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+                    <!-- Livestock Percentage label and result label -->
+                    <Label Text="Percentage of Livestock:" HorizontalTextAlignment="Start" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSPercent" Text="..." HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="2"/>
+                    <!-- Livestock Tax label and result label -->
+                    <Label Text="Daily Tax of Livestock:" HorizontalTextAlignment="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSTax" Text="..." HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+                    <!-- Livestock Profit label and result label -->
+                    <Label Text="Profit of Livestock:" HorizontalTextAlignment="Start" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSProfit" Text="..." HorizontalTextAlignment="Center" Grid.Row="6" Grid.Column="2"/>
+                    <!-- Livestock Weight label and result label -->
+                    <Label Text="Average Livestock Weight:" HorizontalTextAlignment="Start" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSWeight" Text="..." HorizontalTextAlignment="Center" Grid.Row="7" Grid.Column="2"/>
+                    <!-- Livestock Produce label and result label -->
+                    <Label Text="Livestock Daily Product:" HorizontalTextAlignment="Start" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LSProduct" Text="..." HorizontalTextAlignment="Center" Grid.Row="8" Grid.Column="2"/>
+                    <!-- Reset button -->
+                    <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="3" Text="Click To Reset" Clicked="SearchReset_click"/>
+                </Grid>
+            </Frame>
+            <!-- Spacer -->
+            <Label Grid.Row="6"/>
+            <!-- FUTURE INVESTMENT SECTION -->
+            <Frame Grid.Row="7">
+                <Label FontSize="Large" FontAttributes="Bold" Text="Future Investment Estimate" HorizontalOptions="Center"/>
+            </Frame>
+            <Frame Grid.Row="8">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Livestock type label and entry -->
+                    <Label Text="Enter Livestock Type:" HorizontalTextAlignment="Start" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="FIType" TextColor="Black" Placeholder="Type..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="2"/>
+                    <!-- Livestock quantity label and entry -->
+                    <Label Text="Enter Livestock Quantity:" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="FIQuantity" TextColor="Black" Placeholder="Quantity..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <!-- Average Weight label and result label -->
+                    <Label Text="Additional Daily Profit:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="FIResult" Text="..." HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Confirm and Reset Buttons -->
+                    <!-- Confirm button -->
+                    <Button Grid.Row="3" Grid.Column="0" Text="Click To Reset" Clicked="InvestConfirm_click"/>
+                    <!-- Reset button -->
+                    <Button Grid.Row="3" Grid.Column="2" Text="Click To Reset" Clicked="InvestReset_click"/>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+        
+    <ContentPage.Resources>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
+        </Style>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value=" White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+</ContentPage>

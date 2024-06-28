@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Models="clr-namespace:LMS_Task_4.Models"
+             xmlns:ViewModels="clr-namespace:LMS_Task_4.ViewModels"
+             x:Class="LMS_Task_4.Pages.InventoryPage"
+             BackgroundColor="DarkSlateGray">
+
+    <ScrollView Margin="15,15,15,15">
+        <Grid RowDefinitions="100,*" HorizontalOptions="Center" RowSpacing="10">
+            <Frame Grid.Row="0">
+                <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Livestock Inventory"/>
+            </Frame>
+            <Frame Grid.Row="1">
+                <Grid RowDefinitions="50,*" ColumnDefinitions="100,100,100,100,100,100" HorizontalOptions="Center" RowSpacing="10" ColumnSpacing="25" MaximumWidthRequest="1000">
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="0" Text="ID"/>
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="1" Text="Cost"/>
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="2" Text="Weight"/>
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="3" Text="Colour"/>
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="4" Text="Milk"/>
+                    <Label FontAttributes="Bold" Grid.Row="0" Grid.Column="5" Text="Wool"/>
+                    <CollectionView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" ItemsSource="{Binding LivestockOC, Source={ViewModels:MainViewModel}}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,*,*,*,*,*">
+                                    <Label Grid.Column="0" Text="{Binding Id}"/>
+                                    <Label Grid.Column="1" Text="{Binding Cost}"/>
+                                    <Label Grid.Column="2" Text="{Binding Weight}"/>
+                                    <Label Grid.Column="3" Text="{Binding Colour}"/>
+                                    <Label Grid.Column="4" Text="{Binding Milk}"/>
+                                    <Label Grid.Column="5" Text="{Binding Wool}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+
+    <ContentPage.Resources>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value=" White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+
+</ContentPage>

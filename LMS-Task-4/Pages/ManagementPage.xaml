@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMS_Task_4.Pages.ManagementPage"
+             BackgroundColor="DarkSlateGray">
+    
+    <ScrollView  Margin="15,15,15,15">
+        <Grid RowDefinitions="1*,1*,1*,1*,1*" HorizontalOptions="Center" RowSpacing="10">
+            <!-- INSERT SECTION -->
+            <Frame Grid.Row="0">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*,1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Insert title -->
+                    <Label FontSize="Medium" FontAttributes="Bold" Text="Add Livestock Entry" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!-- Type label and entry -->
+                    <Label Text="Enter Livestock Type:" HorizontalTextAlignment="Start" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LEType" TextColor="Black" Placeholder="Type..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="2"/>
+                    <!-- Cost label and entry -->
+                    <Label Text="Enter Daily Cost:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LECost" TextColor="Black" Placeholder="Cost..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Weight label and entry -->
+                    <Label Text="Enter Livestock Weight:" HorizontalTextAlignment="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LEWeight" TextColor="Black" Placeholder="Weight..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+                    <!-- Colour label and entry -->
+                    <Label Text="Enter Livestock Colour:" HorizontalTextAlignment="Start" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LEColour" TextColor="Black" Placeholder="Colour..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="2"/>
+                    <!-- Product label and entry -->
+                    <Label Text="Enter Produce Amount:" HorizontalTextAlignment="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LEProduct" TextColor="Black" Placeholder="Produce..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+                    <!-- Confirm and Reset Buttons -->
+                    <!-- Confirm button -->
+                    <Button Grid.Row="6" Grid.Column="0" Text="Click To Confirm" Clicked="InsertConfirm_click"/>
+                    <!-- Reset button -->
+                    <Button Grid.Row="6" Grid.Column="2" Text="Click To Reset" Clicked="InsertReset_click"/>
+                    <!-- Product label and entry -->
+                    <Label Text="Entry Insert Result:" HorizontalTextAlignment="Start" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LEResult" Text="..." HorizontalTextAlignment="Center" Grid.Row="7" Grid.Column="2"/>
+                </Grid>
+            </Frame>
+            <!-- Spacer -->
+            <Label Grid.Row="1"/>
+            <!-- UPDATE SECTION -->
+            <Frame Grid.Row="2">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*,1*,1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Insert title -->
+                    <Label FontSize="Medium" FontAttributes="Bold" Text="Update Livestock Entry" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <Label FontAttributes="Bold" Text="Empty Fields Will Not Be Changed" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!-- Type label and entry -->
+                    <Label Text="Enter Livestock ID:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LUID" TextColor="Black" Placeholder="ID..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Cost label and entry -->
+                    <Label Text="Enter Daily Cost:" HorizontalTextAlignment="Start" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LUCost" TextColor="Black" Placeholder="Cost..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="2"/>
+                    <!-- Weight label and entry -->
+                    <Label Text="Enter Livestock Weight:" HorizontalTextAlignment="Start" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LUWeight" TextColor="Black" Placeholder="Weight..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="2"/>
+                    <!-- Colour label and entry -->
+                    <Label Text="Enter Livestock Colour:" HorizontalTextAlignment="Start" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LUColour" TextColor="Black" Placeholder="Colour..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+                    <!-- Product label and entry -->
+                    <Label Text="Enter Product Amount:" HorizontalTextAlignment="Start" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LUProduct" TextColor="Black" Placeholder="Produce..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="6" Grid.Column="2"/>
+                    <!-- Confirm and Reset Buttons -->
+                    <!-- Confirm button -->
+                    <Button Grid.Row="7" Grid.Column="0" Text="Click To Confirm" Clicked="UpdateConfirm_click"/>
+                    <!-- Reset button -->
+                    <Button Grid.Row="7" Grid.Column="2" Text="Click To Reset" Clicked="UpdateReset_click"/>
+                    <!-- Product label and entry -->
+                    <Label Text="Entry Update Result:" HorizontalTextAlignment="Start" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LUResult" Text="..." HorizontalTextAlignment="Center" Grid.Row="8" Grid.Column="2"/>
+                </Grid>
+            </Frame>
+            <!-- Spacer -->
+            <Label Grid.Row="3"/>
+            <!-- DELETE SECTION -->
+            <Frame Grid.Row="4">
+                <Grid HorizontalOptions="Center" RowDefinitions="1*,1*,1*,1*,1*" ColumnDefinitions="150,100,150" RowSpacing="5" ColumnSpacing="10" Padding="10">
+                    <!-- Insert title -->
+                    <Label FontSize="Medium" FontAttributes="Bold" Text="Delete Livestock Entry" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <Label FontAttributes="Bold" Text="WARNING: Deleting Is Permanent" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"/>
+                    <!-- Type label and entry -->
+                    <Label Text="Enter Livestock ID:" HorizontalTextAlignment="Start" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Entry x:Name="LDID" TextColor="Black" Placeholder="ID..." ClearButtonVisibility="WhileEditing" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2"/>
+                    <!-- Confirm and Reset Buttons -->
+                    <!-- Confirm button -->
+                    <Button Grid.Row="3" Grid.Column="0" Text="Click To Confirm" Clicked="DeleteConfirm_click"/>
+                    <!-- Reset button -->
+                    <Button Grid.Row="3" Grid.Column="2" Text="Click To Reset" Clicked="DeleteReset_click"/>
+                    <!-- Product label and entry -->
+                    <Label Text="Entry Removal Result:" HorizontalTextAlignment="Start" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                    <Label x:Name="LDResult" Text="..." HorizontalTextAlignment="Center" Grid.Row="4" Grid.Column="2"/>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ScrollView>
+
+    <ContentPage.Resources>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Small"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
+        </Style>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Frame">
+            <Setter Property="BackgroundColor" Value=" White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+</ContentPage>

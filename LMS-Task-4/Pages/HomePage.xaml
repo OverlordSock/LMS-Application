@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LMS_Task_4.Pages.HomePage"
+             BackgroundColor="DarkSlateGray">
+
+    <Frame>
+        <Grid HorizontalOptions="Center" VerticalOptions="Center" RowDefinitions="50,50,50,50" RowSpacing="10" Padding="15" MaximumWidthRequest="1000">
+            <Label FontSize="Large" Text="Welcome To LMS Livestock Management" Grid.Row="0"/>
+            <Label FontSize="Medium" Text="The Inventory page allows you to view all current livestock data." Grid.Row="1"/>
+            <Label FontSize="Medium" Text="The Statistics page allows you to view farm financial statistics." Grid.Row="2"/>
+            <Label FontSize="Medium" Text="The Management Page allows you to insert, update and delete livestock." Grid.Row="3"/>
+        </Grid>
+    </Frame>
+
+    <ContentPage.Resources>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+            <Setter Property="LineBreakMode" Value="WordWrap"/>
+        </Style>
+        <!-- Frame styling (Implicit) -->
+        <Style TargetType="Frame">
+            <Setter Property="MaximumWidthRequest" Value="800"/>
+            <Setter Property="MaximumHeightRequest" Value="300"/>
+            <Setter Property="BackgroundColor" Value=" White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </ContentPage.Resources>
+</ContentPage>
